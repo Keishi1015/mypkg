@@ -6,7 +6,7 @@ rclpy.init()
 node = Node("talker")
 
 def cb(request, response):
-    if request.name == "鈴木太郎":
+    if request.name == "米澤慧師":
         response.age = 41
     else:
         response.age = 255

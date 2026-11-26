@@ -10,7 +10,7 @@ def main():
     while not client.wait_for_service(timeout_sec=1.0):
         node.get_logger().info('待機中')
     req = Query.Request()
-    req.name = "鈴木太郎"
+    req.name = "米澤慧師"
     future = client.call_async(req)
 
     while rclpy.ok():
