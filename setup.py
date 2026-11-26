@@ -1,3 +1,5 @@
+import os
+from glob import glob
 from setuptools import find_packages, setup
 
 package_name = 'mypkg'
@@ -10,20 +12,19 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='keishiy',
-    maintainer_email='keishiy127@gmail.com',
-    description='a package for practice',
+    maintainer='Keishi Yonezawa',
+    maintainer_email='your_email@example.com',
+    description='ROS 2 practice package',
     license='BSD-3-Clause',
-    extras_require={
-        'test': [
-            'pytest',
-        ],
-    },
+    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'talker = mypkg.talker:main',
+            'listener = mypkg.listener:main',
         ],
     },
 )
